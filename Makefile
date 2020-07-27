@@ -5,7 +5,7 @@ liblarge.so: add0.o add1.o add2.o add3.o add4.o add5.o add6.o add7.o add8.o add9
 	nvcc -shared -o $@ $^
 
 %.o: %.cu
-	nvcc --compiler-options -fPIC $(ARCH) -std=c++17 -ccbin $(CXX) -c -o $@ $<
+	nvcc --extended-lambda --compiler-options -fPIC $(ARCH) -std=c++17 -ccbin $(CXX) -c -o $@ $<
 
 add%.cu: template.cu
 	cp $< $@
